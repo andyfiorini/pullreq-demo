@@ -1,0 +1,42 @@
+resources:
+- name: pipeline-repo
+  type: git
+  check: 1m
+  source:
+    uri: https://github.com/andyfiorini/pipeline-deploy-spring-music.git
+    branch: master
+
+- name: spring-music
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry-samples/spring-music
+ 
+jobs:
+- name: build-spring-music
+  plan:
+  - get: pipeline-repo
+    trigger: true
+  - get: spring-music
+  - task: build
+    file: pipeline-repo/ci/tasks/build.yml
+
+- name: deploy-spring-music
+  plan:
+  - aggregate:
+    - get: pipeline-repo
+      trigger: true
+      passed: [build-spring-music]
+    - get: spring-music
+      passed: [build-spring-music]
+  - task: deploy
+    file: pipeline-repo/ci/tasks/deploy.yml
+
+- name: smoke-test
+  plan:
+  - aggregate:
+    - get: pipeline-repo
+#      trigger: true
+      passed: [deploy-spring-music]
+  - task: run-app-test
+    file: pipeline-repo/ci/tasks/curl.yml
+
