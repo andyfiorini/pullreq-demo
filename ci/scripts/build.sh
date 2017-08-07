@@ -2,6 +2,6 @@
 set -ex
 
 cd git-pr/
-./gradelw clean assemble
+./gradlew clean assemble
 cd -
 
