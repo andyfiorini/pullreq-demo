@@ -13,5 +13,3 @@ run:
 inputs:
 - name: pipeline-repo
 - name: git-pr
-outputs:
-- name: binary
