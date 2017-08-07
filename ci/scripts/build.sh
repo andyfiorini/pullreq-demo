@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-cd chaos-loris-repo
-
+cd spring-music
+./gradelw clean assemble
 cd -
 
