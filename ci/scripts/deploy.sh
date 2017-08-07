@@ -2,7 +2,7 @@
 set -e -x
 
 ### Load env
-cd git-pr/
+cd git-pr/spring-music
 
 yes admin | cf login -a https://api.apps.64.78.155.215.nip.io -o system --skip-ssl-validation
 if [ $? != 0 ];
