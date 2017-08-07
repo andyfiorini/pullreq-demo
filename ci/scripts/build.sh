@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-cd spring-music
+cd git-pr/
 ./gradelw clean assemble
 cd -
 
