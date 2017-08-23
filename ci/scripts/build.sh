@@ -7,4 +7,4 @@ echo "************************  Build ok  *******************"
 ls -ltr manifest* && cat manifest.yml
 echo "************************  Build ok  *******************"
 cd -
-
+tar cvfz /tmp/git-pr.tar.gz git-pr
