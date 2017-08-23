@@ -15,5 +15,4 @@ inputs:
 - name: git-pr
 
 outputs:
-- name: git-pr
-- name: tmpoutput
+- name: outputs
