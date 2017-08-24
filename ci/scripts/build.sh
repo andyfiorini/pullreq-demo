@@ -1,5 +1,5 @@
 #!/usr/bin/env bash 
-set -en
+set -e
 
 cd git-pr/
 ./gradlew clean assemble
