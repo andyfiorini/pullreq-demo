@@ -9,7 +9,7 @@ FORMER_APP_NAME=`grep "\- name: " manifest.yml | awk -F: '{print $2}'`
 TIMESTAMP=`date +%s`
 NEW_APP_NAME=`printf "%stest%s", $APP_NAME, $TIMESTAMP ;`
 cat manifest.yml | sed '/\- name:/d' > tmp1
-echo "\- name: $NEW_APP_NAME" >> tmp1 
+echo "- name: $NEW_APP_NAME" >> tmp1 
 mv tmp1 manifest.yml
 echo "************************  Manifest mod ok  *******************"
 echo "NEW APP NAME IS: $NEW_APP_NAME"
