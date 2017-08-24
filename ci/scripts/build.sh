@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 cd git-pr/
 ./gradlew clean assemble
@@ -7,7 +7,7 @@ echo "************************  Build ok  *******************"
 echo "************************  Build ok  *******************"
 FORMER_APP_NAME=`grep "\- name: " manifest.yml | awk -F: '{print $2}'`
 TIMESTAMP=`date +%s`
-NEW_APP_NAME=`printf ("%stest%s", $APP_NAME, $TIMESTAMP );`
+NEW_APP_NAME=`printf "%stest%s", $APP_NAME, $TIMESTAMP ;`
 cat manifest.yml | sed '/\- name:/d' > tmp1
 echo "\- name: $NEW_APP_NAME" >> tmp1 
 mv tmp1 manifest.yml
