@@ -11,6 +11,7 @@ NEW_APP_NAME=`printf "%stest%s" $APP_NAME $TIMESTAMP ;`
 cat manifest.yml | sed '/- name:/d' > tmp1
 cat tmp1 | sed '/^$/d' > tmp2
 echo "- name: $NEW_APP_NAME" >> tmp2 
+echo "  host: $NEW_APP_NAME" >> tmp2 
 mv tmp2 manifest.yml
 echo "************************  Manifest mod ok  *******************"
 echo "NEW APP NAME IS: $NEW_APP_NAME"
