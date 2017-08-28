@@ -19,6 +19,6 @@ echo "NEW APP NAME IS: $NEW_APP_NAME"
 ls -ltr manifest* && cat manifest.yml
 echo "************************                   *******************"
 cd -
-tar cvfz outputs/git-pr-1.0.0.tar.gz git-pr
+tar cvfz outputs/git-pr-1.0.0.tar.gz pull-request
 #ls -ltr $PWD/git-pr.tar.gz /tmp/git-pr.tar.gz
 
