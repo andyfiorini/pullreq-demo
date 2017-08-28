@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 set -e
 
-cd git-pr/
+cd pull-request/
 ./gradlew clean assemble
 echo "************************  Build ok  *******************"
 echo "************************  Build ok  *******************"
