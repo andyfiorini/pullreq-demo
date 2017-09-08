@@ -13,4 +13,6 @@ run:
 inputs:
 - name: release
   path: release_tar
+- name: pipeline-repo
+  path: pipeline-repo
 
