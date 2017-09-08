@@ -16,3 +16,6 @@ inputs:
 - name: pipeline-repo
   path: pipeline-repo
 
+outputs:
+- name: outputs
+  path: outputs
