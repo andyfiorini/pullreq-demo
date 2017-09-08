@@ -13,7 +13,7 @@ cf login -a $cfapi -u $cfcred -p $cfsecret --skip-ssl-validation -o $cforg -s $c
 set -x
 cf push $appname -f $appmanname | tee push.log ; 
 [ $? != 0 ] && (echo "cf push... $?" && exit 252);
-
+cd -
 APP_URL=$(cat push.log | grep "urls: " | awk '{print $2}')
 APP_NAME=$(cat push.log | grep "Starting app " | awk '{print $3}')
 
