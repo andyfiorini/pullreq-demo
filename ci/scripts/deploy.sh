@@ -2,30 +2,17 @@
 set -e -x
 
 ### Load env
-cd git-pr
-if [ $? != 0 ];
-then
-    echo "Error en cd";
-    exit 243;
-fi
 
+tar xvfz release_tar/git-pr-1.*.tar.gz
+[ $? != 0 ] && (echo "tar... $?" && exit 255);
+chdir pull-request 
+[ $? != 0 ] && (echo "wrong chdir... $?" && exit 254);
+cf login -a $cfapi -u $cfcred -p $cfsecret --skip-ssl-validation -o $cforg -s $cfspace 
+[ $? != 0 ] && (echo "cf login... $?" && exit 253);
+cf push $app-name -f $app-man-name | tee push.log ; 
+[ $? != 0 ] && (echo "cf push... $?" && exit 252);
 
-yes admin | cf login -a https://api.apps.64.78.155.215.nip.io -o system --skip-ssl-validation
-if [ $? != 0 ];
-then
-    echo "Error en cf dev target";
-    exit 245;
-fi
-
-cf push | tee push.log
-if [ $? != 0 ];
-then
-    echo "Error en cf push"; 
-    exit 244;
-fi
-
-
-APP_URL=`cat push.log | grep "urls: " | awk '{print $2}' `
-APP_NAME=`cat push.log | grep "Starting app " | awk '{print $3}' `
+APP_URL=$(cat push.log | grep "urls: " | awk '{print $2}')
+APP_NAME=$(cat push.log | grep "Starting app " | awk '{print $3}')
 
 echo "APP_URL=$APP_URL\nAPP_NAME=$APP_NAME\n" > app_data_$APP_NAME.txt
