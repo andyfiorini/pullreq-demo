@@ -18,4 +18,4 @@ export APP_NAME=$(cat push.log | grep "Starting app " | awk '{print $3}')
 
 cd -
 
-echo "APP_URL=$APP_URL\nAPP_NAME=$APP_NAME\n" > outputs/app_data_$APP_NAME.txt
+echo "APP_URL=$APP_URL\nAPP_NAME=$APP_NAME\n" > outputs/app_data_1.$APP_NAME.txt
