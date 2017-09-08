@@ -4,8 +4,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: allomov/cf-cli
-    tag: "v1.5"
+    repository: agf234/cf-bg
+    tag: "1.0"
 
 run:
   path: pipeline-repo/ci/scripts/run-app-test.sh
