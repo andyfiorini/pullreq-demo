@@ -14,11 +14,11 @@ head -2 manifest.yml > header
 LINES=$(wc -l manifest.yml| awk '{print $1}')
 let LINESm2=$((LINES))-2;
 tail -$LINESm2 manifest.yml > footer
-cat footer | grep -v "- name:" | grep -v "  host: " | tee end
-echo "- name: $NEW_APP_NAME" >> tmp2 
+cat footer | grep -v "- name:" | grep -v "  host: " > end
+echo "- name: $NEW_APP_NAME" > tmp2 
 echo "  host: $NEW_APP_NAME" >> tmp2 
 echo "************** NEW MANIFEST *******************"
-cat header tmp2 footer | tee manifest.yml
+cat header tmp2 end | tee manifest.yml
 echo "***********************************************"
 echo "************************  Manifest mod ok  *******************"
 echo "NEW APP NAME IS: $NEW_APP_NAME"
