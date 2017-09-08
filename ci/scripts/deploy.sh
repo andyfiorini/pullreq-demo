@@ -5,7 +5,7 @@ set -e -x
 
 /usr/bin/tar xvfz release_tar/git-pr-1.*.tar.gz
 [ $? != 0 ] && (echo "tar... $?" && exit 255);
-chdir pull-request 
+cd pull-request 
 [ $? != 0 ] && (echo "wrong chdir... $?" && exit 254);
 cf login -a $cfapi -u $cfcred -p $cfsecret --skip-ssl-validation -o $cforg -s $cfspace 
 [ $? != 0 ] && (echo "cf login... $?" && exit 253);
