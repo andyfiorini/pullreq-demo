@@ -1,9 +1,9 @@
-#!usr/bin/env bash
+#!/usr/bin/bash
 set -e -x
 
 ### Load env
 
-tar xvfz release_tar/git-pr-1.*.tar.gz
+/usr/bin/tar xvfz release_tar/git-pr-1.*.tar.gz
 [ $? != 0 ] && (echo "tar... $?" && exit 255);
 chdir pull-request 
 [ $? != 0 ] && (echo "wrong chdir... $?" && exit 254);
