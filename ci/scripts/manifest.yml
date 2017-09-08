@@ -1,7 +1,0 @@
----
-applications:
-- name: 1504876458test
-  host: 1504876458test
-  memory: 1G
-  random-route: true
-  path: build/libs/spring-music.jar
