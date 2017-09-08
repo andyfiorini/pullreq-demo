@@ -10,12 +10,6 @@ image_resource:
 run:
   path: pipeline-repo/ci/scripts/deploy.sh
 
-- put: app-data
-  params:
-    file: 'app_data*.txt'
-    acl: public-read
-
-inputs:
 - name: release
   path: release_tar
 
