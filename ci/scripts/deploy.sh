@@ -7,8 +7,10 @@ set -e -x
 [ $? != 0 ] && (echo "tar... $?" && exit 255);
 cd pull-request 
 [ $? != 0 ] && (echo "wrong chdir... $?" && exit 254);
+set +x
 cf login -a $cfapi -u $cfcred -p $cfsecret --skip-ssl-validation -o $cforg -s $cfspace 
 [ $? != 0 ] && (echo "cf login... $?" && exit 253);
+set -x
 cf push $appname -f $appmanname | tee push.log ; 
 [ $? != 0 ] && (echo "cf push... $?" && exit 252);
 
