@@ -17,9 +17,15 @@ then
     exit 245;
 fi
 
-cf push
+cf push | tee push.log
 if [ $? != 0 ];
 then
     echo "Error en cf push"; 
     exit 244;
 fi
+
+
+APP_URL=`cat push.log | grep "urls: " | awk '{print $2}' `
+APP_NAME=`cat push.log | grep "Starting app " | awk '{print $3}' `
+
+echo "APP_URL=$APP_URL\nAPP_NAME=$APP_NAME\n" > app_data_$APP_NAME.txt
