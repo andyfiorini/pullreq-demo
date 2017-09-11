@@ -3,6 +3,7 @@ set -e -x
 
 ### Load env
 TIMESTAMP=`date +%s`
+TAIL_TIMESTAMP=`echo $TIMESTAMP | cut -c8`
 
 /usr/bin/tar xvfz release_tar/git-pr-1.*.tar.gz
 [ $? != 0 ] && (echo "tar... $?" && exit 255);
@@ -19,7 +20,7 @@ export APP_NAME=$(cat push.log | grep "Starting app " | awk '{print $3}')
 
 cd -
 
-printf "%s\n%s\n" APP_URL=$APP_URL APP_NAME=$APP_NAME  | sed 's/,//g' > outputs/app-data-1.$TIMESTAMP.txt
+printf "%s\n%s\n" APP_URL=$APP_URL APP_NAME=$APP_NAME  | sed 's/,//g' > outputs/app-data-1.$TAIL_TIMESTAMP.txt
 
 echo "***********"
 cat outputs/app-data*.txt
