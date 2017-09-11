@@ -1,0 +1,2 @@
+APP_URL=spring-music-unformulistic-batata.apps.64.78.155.205.nip.io
+APP_NAME=spring-music
