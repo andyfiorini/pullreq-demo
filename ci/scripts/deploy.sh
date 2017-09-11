@@ -20,7 +20,7 @@ export APP_NAME=$(cat push.log | grep "Starting app " | awk '{print $3}')
 
 cd -
 
-printf "%s\n%s\n" APP_URL=$APP_URL APP_NAME=$APP_NAME  | sed 's/,//g' > outputs/appdata-1.$TAIL_TIMESTAMP.txt
+printf "%s\n%s\n" APP_URL=$APP_URL APP_NAME=$APP_NAME  | sed 's/,//g' > outputs/appdata-1.$TAIL_TIMESTAMP-0.txt
 
 echo "***********"
 cat outputs/appdata*.txt
