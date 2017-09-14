@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: allomov/chaos-loris-build
+    tag: v1.1
+
+run:
+  path: pipeline-repo/ci/scripts/decomp.sh
+
+inputs:
+- name: pipeline-repo
+- name: pull-request
+- name: test-data
+
+outputs:
+- name: outputs
