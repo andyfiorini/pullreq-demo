@@ -2,7 +2,8 @@
 #
 #
 set -xe
-tar xvf test-data/*.tar
+cd outputs
+tar xvf ../test-data/*.tar
 find
 pwd
 
