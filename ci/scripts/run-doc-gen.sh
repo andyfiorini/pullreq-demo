@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-env > outputs/README-1.0.md
+env > outputs/README-1.0.0.md
 find .
 if ! grep "** OK **" test-data/test-data-1.0.0.txt;
 then
