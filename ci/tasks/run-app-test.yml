@@ -13,3 +13,7 @@ run:
 inputs:
 - name: pipeline-repo
 - name: appdata
+
+outputs:
+- name: outputs
+  path: outputs
