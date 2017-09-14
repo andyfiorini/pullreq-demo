@@ -2,6 +2,7 @@
 #
 #
 env > outputs/README-1.0.md
+find .
 if grep "** OK **" test-data/*.txt;
 then
     echo "TEST OK" | tee -a outputs/README\-1.0.md

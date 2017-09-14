@@ -12,6 +12,7 @@ run:
 
 inputs:
 - name: pipeline-repo
+- name: test-data
 
 outputs:
 - name: outputs
