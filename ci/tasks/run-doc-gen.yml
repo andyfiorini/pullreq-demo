@@ -12,3 +12,8 @@ run:
 
 inputs:
 - name: pipeline-repo
+
+outputs:
+- name: outputs
+  path: outputs
+
